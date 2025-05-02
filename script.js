@@ -26,38 +26,39 @@ function playRound(humanChoice, computerChoice,){
         humanChoice === "scissors" && computerChoice === "scissors"
     ){
         console.log("Tie!");
+        roundResult.textContent = "Tie!";
     }else if (humanChoice === "rock" && computerChoice === "paper"){
-        console.log("You Lose! Paper beats Rock");
+        roundResult.textContent = "You Lose! Paper beats Rock";
         computerScore++;
         console.log("Your Score: " + humanScore);
         console.log("Computer Score: " + computerScore);
     }else if (humanChoice === "rock" && computerChoice === "scissors"){
-        console.log("You Win! Rock beats Scissors");
+        roundResult.textContent = "You Win! Rock beats Scissors";
         humanScore++;
         console.log("Your Score: " + humanScore);
         console.log("Computer Score: " + computerScore);
     }else if (humanChoice === "paper" && computerChoice === "rock"){
-        console.log("You Win! Paper beats Rock");
+        roundResult.textContent = "You Win! Paper beats Rock";
         humanScore++;
         console.log("Your Score: " + humanScore);
         console.log("Computer Score: " + computerScore);
     }else if (humanChoice === "paper" && computerChoice === "scissors"){
-        console.log("You Lose! Scissors beats Paper");
+        roundResult.textContent = "You Lose! Scissors beats Paper";
         computerScore++;
         console.log("Your Score: " + humanScore);
         console.log("Computer Score: " + computerScore);
     }else if (humanChoice === "scissors" && computerChoice === "rock"){
-        console.log("You Lose! Rock beats Scissors");
+        roundResult.textContent = "You Lose! Rock beats Scissors";
         computerScore++;
         console.log("Your Score: " + humanScore);
         console.log("Computer Score: " + computerScore);
     }else if (humanChoice === "scissors" && computerChoice === "paper"){
-        console.log("You Win! Scissors beats Paper");
+        roundResult.textContent = "You Win! Scissors beats Paper";
         humanScore++;
         console.log("Your Score: " + humanScore);
         console.log("Computer Score: " + computerScore);
     }else{
-        console.log("Wrong or no input entered, Use Rock, Papper or Scissors :)")
+        roundResult.textContent = "Wrong or no input entered, Use Rock, Papper or Scissors :)";
     }
 
 
@@ -66,6 +67,7 @@ function playRound(humanChoice, computerChoice,){
 let rockBtn = document.querySelector(".rock");
 let paperBtn = document.querySelector(".paper");
 let scissorsBtn = document.querySelector(".scissors");
+let roundResult = document.querySelector(".roundResult");
 
 rockBtn.addEventListener("click", e => { playRound("rock", getComputerChoice()) });
 paperBtn.addEventListener("click", e => { playRound("paper", getComputerChoice()) });
