@@ -63,12 +63,13 @@ function playRound(humanChoice, computerChoice,){
 
 }
 
-let i = 1;
+let rockBtn = document.querySelector(".rock");
+let paperBtn = document.querySelector(".paper");
+let scissorsBtn = document.querySelector(".scissors");
 
-while (i <= 5) {
-    playRound(getHumanChoice(), getComputerChoice());
-    i++
-}
+rockBtn.addEventListener("click", e => { playRound("rock", getComputerChoice()) });
+paperBtn.addEventListener("click", e => { playRound("paper", getComputerChoice()) });
+scissorsBtn.addEventListener("click", e => { playRound("scissors", getComputerChoice()) });
 
 if (humanScore > computerScore){
     console.log("Finally you are the overall winner!");
