@@ -17,6 +17,17 @@ function getHumanChoice(){
     return humanValue;
 }
 
+function determineWinner(){
+    if (humanScore > computerScore){
+        console.log("Finally you are the overall winner!");
+    }else if (humanScore < computerScore){
+        console.log("You finally lose but dont give up just hit F5 or referesh the page");
+    }else{
+        console.log("The game ended up a Tie, Reload for a remarch");
+    }
+}
+
+
 let humanScore = 0;
 let computerScore = 0;
 
@@ -57,7 +68,18 @@ function playRound(humanChoice, computerChoice,){
         humanScoreText.textContent = humanScore;
         computerScoreText.textContent = computerScore;
     }else{
-        roundResult.textContent = "Wrong or no input entered, Use Rock, Papper or Scissors :)";
+        console.log("Somthing went wrong");
+    }
+    if (humanScore ===5 || computerScore ===5 && humanScore > computerScore){
+        finaleRemark.textContent = "Finally you are the overall winner! Click on the rematch button for a rematch";
+        rockBtn.disabled = true;
+        paperBtn.disabled = true;
+        scissorsBtn.disabled = true;
+    }else if (humanScore ===5 || computerScore ===5 && humanScore < computerScore){
+        finaleRemark.textContent = "You finally lose but dont give up, click on the rematch button for a rematch";
+        rockBtn.disabled = true;
+        paperBtn.disabled = true;
+        scissorsBtn.disabled = true;
     }
 }
 
@@ -67,15 +89,20 @@ let scissorsBtn = document.querySelector(".scissors");
 let roundResult = document.querySelector(".roundResult");
 let humanScoreText = document.querySelector(".humanScore");
 let computerScoreText = document.querySelector(".computerScore");
+let finaleRemark = document.querySelector(".finaleRemark");
+let rematchButton = document.querySelector(".rematchButton");
 
-rockBtn.addEventListener("click", e => { playRound("rock", getComputerChoice()) });
-paperBtn.addEventListener("click", e => { playRound("paper", getComputerChoice()) });
-scissorsBtn.addEventListener("click", e => { playRound("scissors", getComputerChoice()) });
 
-if (humanScore > computerScore){
-    console.log("Finally you are the overall winner!");
-}else if (humanScore < computerScore){
-    console.log("You finally lose but dont give up just hit F5 or referesh the page");
-}else{
-    console.log("The game ended up a Tie, Reload for a remarch");
-}
+rockBtn.addEventListener("click", e => { playRound("rock", getComputerChoice())});
+paperBtn.addEventListener("click", e => {playRound("paper", getComputerChoice())});
+scissorsBtn.addEventListener("click", e => {playRound("scissors", getComputerChoice())});
+rematchButton.addEventListener("click", e => {
+    humanScore = 0; 
+    computerScore = 0;
+    humanScoreText.textContent = humanScore;
+    computerScoreText.textContent = computerScore;
+    finaleRemark.textContent = "Waiting for scores...";
+    rockBtn.disabled = false;
+    paperBtn.disabled = false;
+    scissorsBtn.disabled = false;
+})
