@@ -102,6 +102,7 @@ rematchButton.addEventListener("click", e => {
     humanScoreText.textContent = humanScore;
     computerScoreText.textContent = computerScore;
     finaleRemark.textContent = "Waiting for scores...";
+    roundResult.textContent = "Game started, make your selection";
     rockBtn.disabled = false;
     paperBtn.disabled = false;
     scissorsBtn.disabled = false;
